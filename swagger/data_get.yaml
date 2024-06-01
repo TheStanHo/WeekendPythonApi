@@ -1,0 +1,16 @@
+Swagger definition for the data GET endpoint
+---
+tags:
+  - data
+summary: Instructions to use POST method
+responses:
+  200:
+    description: Instructions message
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Send data using POST method"

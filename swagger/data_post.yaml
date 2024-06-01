@@ -1,0 +1,12 @@
+Swagger definition for the data POST endpoint
+---
+tags:
+  - data
+parameters:
+  - name: Json Data
+    in: body
+    description: "Json Data being sent"
+    required: true
+responses:
+  201:
+    description: Sent successfully
