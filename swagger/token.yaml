@@ -1,0 +1,53 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Authentication API
+  description: API for generating a JWT token
+  contact:
+    name: "Your Name"
+    email: "your.email@example.com"
+    url: "http://www.example.com"
+  termsOfService: "http://example.com/terms"
+
+tags:
+  - authentication
+summary: Generate JWT Token
+description: Endpoint to generate a JWT token upon successful authentication.
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: body
+    description: JSON object containing username and password
+    required: true
+    schema:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          example: "username"
+        password:
+          type: string
+          example: "password"
+responses:
+  200:
+    description: Token generated successfully
+    schema:
+      type: object
+      properties:
+        bearertoken:
+          type: string
+          example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+  401:
+    description: Invalid credentials
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Invalid credentials!"

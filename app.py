@@ -47,9 +47,9 @@ def token_required(f):
     wrapper.__name__ = f.__name__  # Avoids a name collision issue with the decorator
     return wrapper
 
-@app.route('/login', methods=['POST'])
-@swag_from('./swagger/login.yaml')
-def login():
+@app.route('/token', methods=['POST'])
+@swag_from('./swagger/token.yaml')
+def token():
     auth = request.json
     if auth and auth['username'] == 'user' and auth['password'] == 'pass':
         token = jwt.encode({'user': auth['username'], 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'], algorithm="HS256")
